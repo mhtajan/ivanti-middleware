@@ -21,7 +21,7 @@ To set up Ivanti Middleware for connecting your Business Objects, follow these s
 1. Clone this repository:
 
 ```bash
-$ git clone https://github.com/yourusername/ivanti-middleware.git
+$ git clone https://github.com/mhtajan/ivanti-middleware.git
 $ cd ivanti-middleware
 ```
 2. Install the required dependencies:
