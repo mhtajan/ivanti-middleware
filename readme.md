@@ -34,7 +34,7 @@ $ npm install
 4. Start the Ivanti Middleware:
 ```bash
 $ npm start
-
+```
 # Getting Started with ngrok
 
 ngrok is a tool that allows you to expose your local server to the internet, enabling you to quickly share and test your web applications. This guide will help you set up and use ngrok for your development needs.
