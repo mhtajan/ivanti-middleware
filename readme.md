@@ -34,3 +34,36 @@ $ npm install
 4. Start the Ivanti Middleware:
 ```bash
 $ npm start
+
+# Getting Started with ngrok
+
+ngrok is a tool that allows you to expose your local server to the internet, enabling you to quickly share and test your web applications. This guide will help you set up and use ngrok for your development needs.
+
+## Installation
+
+1. **Download ngrok:**
+
+   Visit the [ngrok website](https://ngrok.com/) and sign up for an account. After signing up, you'll be able to download the ngrok command-line tool.
+
+2. **Unzip the Downloaded File:**
+
+   Extract the downloaded ngrok executable to a location on your system.
+
+3. **Add ngrok to Your Path:**
+
+   You can either move the ngrok executable to a directory that's already in your system's PATH, or you can add the directory where ngrok is located to your PATH. This will allow you to run ngrok from any terminal window.
+
+## Usage
+
+1. **Run Your Local Server:**
+
+   Start your local server that you want to expose to the internet. For example, if you're using Node.js and Express, you might run `node app.js`.
+
+2. **Expose Your Local Server:**
+
+   Open a terminal window and navigate to the directory where the ngrok executable is located.
+
+   Run the following command to expose your local server:
+
+   ```bash
+   ./ngrok http 3000
