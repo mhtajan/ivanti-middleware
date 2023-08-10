@@ -36,10 +36,22 @@ app.listen(port, () => {
 // Ivanti Part
 const TENANT = process.env.TENANT;
 const API_KEY = process.env.APIKEY;
+
+const headers = {
+  'Authorization': `Bearer ${API_KEY}`,
+  'Content-Type': 'application/json', 
+};
+
 async function toIvanti(payload){
     try {
-        const response = await axios.post(`${TENANT}/api/odata/businessobject/incidents/${payload.incidentID}`,payload)
-        console.log(response)
+        await axios.post(`${TENANT}/api/odata/businessobject/testobjects`,payload, { headers })
+        .then(response =>{
+          console.log(response.data)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+        
     } catch (error) {
         console.error(`Error at ${error}`)
     }
