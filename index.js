@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios')
 const app = express();
+const https = require('https');
 require('dotenv').config();
 const port = 3000;
 
@@ -9,23 +10,18 @@ const port = 3000;
 app.use(bodyParser.json());
 
 // Routes
-app.get('/api/items', (req, res) => {
-  //res.json(data);
-});
-
 app.post('/api/items', (req, res) => {
   const newItem = req.body;
   //data.push(newItem);
   res.status(201).json(newItem);
   console.log(newItem)
 });
-app.post('/api/ticket', (req, res) => {
-    const newItem = req.body;
-    //data.push(newItem);
-    res.status(201).json(newItem);
-    toIvanti(newItem)
-  });
 
+app.post('/api/ticket', (req, res) => {
+  const newItem = req.body;
+  res.status(201).json(newItem);
+  toIvanti(newItem)
+});
 
 // Start the server
 app.listen(port, () => {
@@ -34,25 +30,27 @@ app.listen(port, () => {
 
 
 // Ivanti Part
-const TENANT = process.env.TENANT;
-const API_KEY = process.env.APIKEY;
 
 const headers = {
-  'Authorization': `Bearer ${API_KEY}`,
-  'Content-Type': 'application/json', 
+  'Authorization': 'x', //add api key
+  'Accept': 'application/json',
+  'Content-Type': 'application/json',
 };
 
-async function toIvanti(payload){
-    try {
-        await axios.post(`${TENANT}/api/odata/businessobject/testobjects`,payload, { headers })
-        .then(response =>{
-          console.log(response.data)
-        })
-        .catch(error => {
-          console.log(error)
-        })
-        
-    } catch (error) {
-        console.error(`Error at ${error}`)
-    }
+const agent = new https.Agent({
+  rejectUnauthorized: false
+});
+
+async function toIvanti(payload) {
+  try {
+    await axios.post(`x`, payload, { headers, httpsAgent: agent }) // add ivanti endpoint
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  } catch (error) {
+    console.error(`Error at ${error}`)
+  }
 }
