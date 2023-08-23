@@ -3,18 +3,17 @@ const bodyParser = require('body-parser');
 const axios = require('axios')
 const app = express();
 const https = require('https');
-require('dotenv').config
-const port = 3000;
-
+require('dotenv').config();
+var today = new Date();
 // Middleware parser
 app.use(bodyParser.json());
 
 // Routes
 app.post('/api/items', (req, res) => {
   const newItem = req.body;
-  //data.push(newItem);
   res.status(201).json(newItem);
   console.log(newItem)
+  console.log(today)
 });
 
 app.post('/api/ticket', (req, res) => {
@@ -24,15 +23,15 @@ app.post('/api/ticket', (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-  console.log(`API server running on http://localhost:${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`API server running on http://localhost:${process.env.PORT}`);
 });
 
 
 // Ivanti Part
 
 const headers = {
-  'Authorization': 'x', //add api key
+  'Authorization': `${process.env.APIKEY}`, //add api key
   'Accept': 'application/json',
   'Content-Type': 'application/json',
 };
@@ -43,7 +42,7 @@ const agent = new https.Agent({
 
 async function toIvanti(payload) {
   try {
-    await axios.post(`x`, payload, { headers, httpsAgent: agent }) // add ivanti endpoint
+    await axios.post(`${process.env.TENANT+process.env.ENDPOINT1}`, payload, { headers, httpsAgent: agent }) // add ivanti endpoint
       .then(response => {
         console.log(response.data)
       })
