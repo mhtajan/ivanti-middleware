@@ -25,7 +25,7 @@ function checkStringAgainstFileNames(directory, inputString) {
 
 // Specify the directory to check file names against
 const scriptsDirectory = path.join(__dirname, '..', 'posts');
-const inputString = 'request_invoice'; // Replace with the string you want to check
+const inputString = '123'; // Replace with the string you want to check
 
 const isMatching = checkStringAgainstFileNames(scriptsDirectory, inputString);
 if (isMatching) {
