@@ -4,12 +4,8 @@ const axios = require('axios')
 const app = express();
 const https = require('https');
 require('dotenv').config();
-<<<<<<< HEAD
-var today = new Date();
-=======
 const port = 3000;
 
->>>>>>> a27a039c24ab6cfc11c48d11ac240243cb07d2e9
 // Middleware parser
 app.use(bodyParser.json());
 
