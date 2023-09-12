@@ -1,0 +1,17 @@
+{
+    "RecId": "1FDBBCAF2D3A41E7930AF5D075CFF268",
+    "CreatedBy": "asumucol",
+    "CreatedDateTime": "2023-09-08T15:00:37+08:00",
+    "LastModBy": "asumucol",
+    "LastModDateTime": "2023-09-08T15:00:37+08:00",
+    "ReadOnly": false,
+    "TestField_Valid": "0C410C639E83489FB08D14EC446A2D82",
+    "TestField": "Value #2",
+    "TestBoolean": false,
+    "TestObj_to_SONumb": 0,
+    "TestObjectNumber": 29,
+    "Relationship_Conn": null,
+    "SO_BILL_TO_PARTY_CODE_Category": "SO_NUMBER_TEST",
+    "SO_BILL_TO_PARTY_CODE_RecID": "40083DA7FB21451F9555A9B0392D17B2",
+    "SO_BILL_TO_PARTY_CODE": "40083DA7FB21451F9555A9B0392D17B2"
+}

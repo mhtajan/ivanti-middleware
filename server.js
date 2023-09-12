@@ -1,4 +1,6 @@
-module.exports = function (app) {
+const testJS = require('./test/test.js')
+const testpayload = require('./test/testpayload.json')
+module.exports = function (app,headers,tenant,agent) {
 
   // Routes
   app.post('/api/items', (req, res) => {
@@ -9,7 +11,9 @@ module.exports = function (app) {
   });
 
   app.post('/test', (req, res) => {
-    res.status(201)
+    const test = req.body;
+    res.status(201).json(test);
+    testJS.reqtest_POST(test,headers,tenant,agent)
   })
 
   app.post('/api/ticket', (req, res) => {

@@ -20,7 +20,7 @@ const agent = new https.Agent({
   rejectUnauthorized: false
 });
 
-require('./server.js')(app);
+require('./server.js')(app,headers,tenant,agent);
 
 // Start the server
 app.listen(process.env.PORT, () => {
