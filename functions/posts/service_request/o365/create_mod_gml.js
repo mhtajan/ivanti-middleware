@@ -3,21 +3,14 @@
 // /api/odata/businessobjects/[businessobject]+s/
 // ServiceReq = Create or Modify GML business object
 const axios = require('axios')
-
-async function createModGML_POST(payload, headers, tenantURL) {
+const middleware = require('../../../../middleware.js')
+module.exports = {
+  async createModGML_POST(payload, headers, tenantURL,agent, childpayload) {
     try {
-      await axios.post(`${tenantURL}/api/odata/businessobjects/ServiceReqs`, payload, { headers, httpsAgent: agent }) // add ivanti endpoint
-        .then(response => {
-          console.log(response.data)
-        })
-        .catch(error => {
-          console.log(error)
-        })
+      const uri = tenantURL+process.env.SR
+      const response = middleware.createObject(uri,payload,headers,agent)
     } catch (error) {
       console.error(`Error at ${error}`)
     }
   }
-
-module.exports = {
-  createModGML_POST 
 }
