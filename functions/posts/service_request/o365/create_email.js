@@ -3,7 +3,6 @@
 // /api/odata/businessobjects/[businessobject]+s/
 // ServiceReq = Creation of new Email Account business object
 const axios = require('axios')
-
 async function createEmail_POST(payload, headers, tenantURL) {
     try {
       await axios.post(`${tenantURL}/api/odata/businessobjects/ServiceReqs`, payload, { headers, httpsAgent: agent }) // add ivanti endpoint
